@@ -1,0 +1,33 @@
+{
+  "name": "great-award-server",
+  "version": "1.0.0",
+  "description": "great award chat and vote server",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "format": "prettier \"*.js\" --write",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/znxkznxk1030/great-award-server.git"
+  },
+  "keywords": [
+    "great",
+    "awards",
+    "chat"
+  ],
+  "author": "arthur kim",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/znxkznxk1030/great-award-server/issues"
+  },
+  "homepage": "https://github.com/znxkznxk1030/great-award-server#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "prettier": "^2.3.2"
+  }
+}
