@@ -1,8 +1,12 @@
 let app = require("express")();
+var cors = require('cors');
 let server = require("http").createServer(app);
+
+app.use(cors());
+
 let io = require("socket.io")(server,{
   cors: {
-    origin: "http://localhost:3000",
+    origin: "https://znxkznxk1030.github.io",
     methods: ["GET", "POST"]
   }
 });
