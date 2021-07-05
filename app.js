@@ -6,8 +6,7 @@ app.use(cors());
 
 let io = require("socket.io")(server,{
   cors: {
-    origin: "https://znxkznxk1030.github.io",
-    methods: ["GET", "POST"]
+    origin: "*",
   }
 });
 
