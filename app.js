@@ -15,9 +15,9 @@ server.listen(8080, () => {
 });
 
 io.on("connection", (socket) => {
-  // console.log(socket);
+  console.log(socket);
   socket.on("login", (data) => {
-    // console.log(data);
+    console.log(data);
     io.emit("new user", data);
   });
 
