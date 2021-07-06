@@ -1,5 +1,6 @@
+let fs = require('fs')
 let app = require("express")();
-var cors = require('cors');
+let cors = require('cors');
 let ssl = {
   key: fs.readFileSync('../mydomain.key'),
   cert: fs.readFileSync('../mydomain.csr'),
