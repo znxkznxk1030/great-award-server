@@ -11,6 +11,10 @@ let ssl = {
 let server = require("http").createServer(app);
 
 app.use(cors());
+app.use('/', function (req, res, next) {
+    res.json("connected");
+});
+
 
 let io = require("socket.io")(server,{
   cors: {
