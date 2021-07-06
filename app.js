@@ -8,7 +8,7 @@ let ssl = {
   requestCert: false,
   rejectUnauthorized: false
 }
-let server = require("https").createServer(ssl, app);
+let server = require("http").createServer(app);
 
 app.use(cors());
 
@@ -18,8 +18,10 @@ let io = require("socket.io")(server,{
   }
 });
 
-server.listen(443, () => {
-  console.log("Socket IO server listening on port 8080");
+const PORT = 8080;
+
+server.listen(PORT, () => {
+  console.log("Socket IO server listening on port " + PORT);
 });
 
 io.on("connection", (socket) => {
