@@ -20,7 +20,7 @@ let io = require("socket.io")(server,{
   }
 });
 
-const PORT = 80;
+const PORT = 8080;
 
 server.listen(PORT, () => {
   console.log("Socket IO server listening on port " + PORT);
