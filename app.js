@@ -29,12 +29,19 @@ server.listen(PORT, () => {
 io.on("connection", (socket) => {
   console.log(socket);
   socket.on("login", (data) => {
-    console.log(data);
-    io.emit("new user", xss(data));
+    let filteredData = {}
+    Object.keys(data).forEach(key => {
+      filteredData[key] = xss(data[key])
+    })
+    io.emit("new user", filteredData);
   });
 
   socket.on("chat", (data) => {
     console.log(data);
-    io.emit("chat", xss(data));
+    let filteredData = {}
+    Object.keys(data).forEach(key => {
+      filteredData[key] = xss(data[key])
+    })
+    io.emit("chat", filteredData);
   });
 });
