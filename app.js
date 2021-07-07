@@ -1,13 +1,5 @@
-let fs = require('fs')
 let app = require("express")();
-let cors = require('cors');
-let ssl = {
-  key: fs.readFileSync('../mydomain.key'),
-  cert: fs.readFileSync('../mydomain.csr'),
-  ca: fs.readFileSync('../ca.key'),
-  requestCert: false,
-  rejectUnauthorized: false
-}
+let xss = require("xss");
 let server = require("http").createServer(app);
 
 app.all('/*', function (req, res, next) {
@@ -38,11 +30,11 @@ io.on("connection", (socket) => {
   console.log(socket);
   socket.on("login", (data) => {
     console.log(data);
-    io.emit("new user", data);
+    io.emit("new user", xss(data));
   });
 
   socket.on("chat", (data) => {
     console.log(data);
-    io.emit("chat", data);
+    io.emit("chat", xss(data));
   });
 });
