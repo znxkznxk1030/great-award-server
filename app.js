@@ -10,7 +10,13 @@ let ssl = {
 }
 let server = require("http").createServer(app);
 
-app.use(cors());
+app.all('/*', function (req, res, next) {
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "X-Requested-With");
+    console.log(req.headers);
+    next();
+});
+
 app.use('/', function (req, res, next) {
     res.json("connected");
 });
